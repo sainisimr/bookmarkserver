@@ -124,7 +124,7 @@ class Shortener(http.server.BaseHTTPRequestHandler):
             # 3. Serve a redirect to the root page (the form).
             #    Delete the following line.
             self.send_response(303)
-            self.send_header('Location', '/')
+            self.send_header('Location', 'https://bookmark7server.herokuapp.com/')
             self.end_headers
         else:
             # Didn't successfully fetch the long URI.
