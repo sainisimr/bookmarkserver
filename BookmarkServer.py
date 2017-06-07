@@ -96,8 +96,8 @@ class Shortener(http.server.BaseHTTPRequestHandler):
                 # 2. Send a 303 redirect to the long URI in memory[name].
                 #    Delete the following line.
                 self.send_response(303)
-                self.send_header('Location', 'https://bookmark7server.herokuapp.com/')
-                self.end_headers
+                self.send_header('Location', memory[name])
+                self.end_headers()
             else:
                 # We don't know that name! Send a 404 error.
                 self.send_response(404)
@@ -130,7 +130,7 @@ class Shortener(http.server.BaseHTTPRequestHandler):
             #    Delete the following line.
             self.send_response(303)
             self.send_header('Location', '/')
-            self.end_headers
+            self.end_headers()
         else:
             # Didn't successfully fetch the long URI.
 
@@ -138,7 +138,7 @@ class Shortener(http.server.BaseHTTPRequestHandler):
             #    Delete the following line.
             self.send_response(404)
             self.send_header('Content-type', 'text/plain; charset=utf-8')
-            self.end_headers
+            self.end_headers()
             self.wfile.write("Couldn't fetch URI '{}'. Sorry!".format(longuri).encode())
 
 if __name__ == '__main__':
