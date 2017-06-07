@@ -96,7 +96,7 @@ class Shortener(http.server.BaseHTTPRequestHandler):
                 # 2. Send a 303 redirect to the long URI in memory[name].
                 #    Delete the following line.
                 self.send_response(303)
-                self.send_header('Location', memory[name])
+                self.send_header('Location', 'https://bookmark7server.herokuapp.com/')
                 self.end_headers
             else:
                 # We don't know that name! Send a 404 error.
